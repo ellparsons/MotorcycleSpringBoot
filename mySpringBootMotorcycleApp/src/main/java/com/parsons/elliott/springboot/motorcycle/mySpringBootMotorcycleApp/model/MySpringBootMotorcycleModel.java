@@ -9,6 +9,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
@@ -20,7 +21,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "")
+@Table(name = "Motorcycle")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"creationDate","lastModified"}, allowGetters = true)
 public class MySpringBootMotorcycleModel implements Serializable{
@@ -30,121 +31,94 @@ public class MySpringBootMotorcycleModel implements Serializable{
 	private long id;
 	
 	@NotBlank 
-	private String Manufacturer;
+	private String manufacturer;
 	
 	@NotBlank
-	private String Brand;
+	private String brand;
 	
 	@NotBlank
-	private String Displacement;
+	private String displacement;
 	
 	@NotBlank
-	private String ClassM;
+	private String classM;
 	
 	@NotBlank
-	private String Horsepower;
+	private String horsepower;
 	
 	@NotBlank
-	private int Price;
+	private int price;
 	
 	@NotBlank
-	private String License;
-	
-	@Column(nullable = false, updatable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	@CreatedDate
-	private Date creationDate;
-	
-	@Column(nullable = false, updatable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	@LastModifiedDate
-	private Date modifiedDate;
-	
+	private String license;
+
 	public MySpringBootMotorcycleModel() {
 		
+	}
+	
+	public MySpringBootMotorcycleModel(long id, @NotBlank String manufacturer, @NotBlank String brand,
+		@NotBlank String displacement, @NotBlank String classM, @NotBlank String horsepower, @NotBlank int price,
+		@NotBlank String license) {
+	super();
+	this.id = id;
+	this.manufacturer = manufacturer;
+	this.brand = brand;
+	this.displacement = displacement;
+	this.classM = classM;
+	this.horsepower = horsepower;
+	this.price = price;
+	this.license = license;
 	}
 
 	public long getId() {
 		return id;
 	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 	public String getManufacturer() {
-		return Manufacturer;
+		return manufacturer;
 	}
-
 	public void setManufacturer(String manufacturer) {
-		Manufacturer = manufacturer;
+		this.manufacturer = manufacturer;
 	}
-
 	public String getBrand() {
-		return Brand;
+		return brand;
 	}
-
 	public void setBrand(String brand) {
-		Brand = brand;
+		this.brand = brand;
 	}
-
 	public String getDisplacement() {
-		return Displacement;
+		return displacement;
 	}
-
 	public void setDisplacement(String displacement) {
-		Displacement = displacement;
+		this.displacement = displacement;
 	}
-
 	public String getClassM() {
-		return ClassM;
+		return classM;
 	}
-
 	public void setClassM(String classM) {
-		ClassM = classM;
+		this.classM = classM;
 	}
-
 	public String getHorsepower() {
-		return Horsepower;
+		return horsepower;
 	}
-
 	public void setHorsepower(String horsepower) {
-		Horsepower = horsepower;
+		this.horsepower = horsepower;
 	}
-
 	public int getPrice() {
-		return Price;
+		return price;
 	}
-
 	public void setPrice(int price) {
-		Price = price;
+		this.price = price;
 	}
-
 	public String getLicense() {
-		return License;
+		return license;
 	}
-
 	public void setLicense(String license) {
-		License = license;
+		this.license = license;
 	}
 
-	public Date getCreationDate() {
-		return creationDate;
-	}
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
-
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
-	}
-	
-	
 	
 	
 }

@@ -32,6 +32,7 @@ public class MySpringBootMotorcycleController {
 	}
 	
 	//Method to get all motorcycles//
+	@GetMapping("/motorcycles")
 	public List<MySpringBootMotorcycleModel> getAllVehicles()
 	{
 		return myRepository.findAll();
