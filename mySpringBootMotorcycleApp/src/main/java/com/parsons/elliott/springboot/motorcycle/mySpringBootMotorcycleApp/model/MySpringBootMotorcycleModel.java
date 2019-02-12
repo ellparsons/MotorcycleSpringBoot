@@ -1,124 +1,129 @@
 package com.parsons.elliott.springboot.motorcycle.mySpringBootMotorcycleApp.model;
 
 import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "Motorcycle")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"creationDate","lastModified"}, allowGetters = true)
+
 public class MySpringBootMotorcycleModel implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Integer idm;
 	
-	@NotBlank 
+	@NotNull
 	private String manufacturer;
 	
-	@NotBlank
-	private String brand;
+	@NotNull
+	private String model;
 	
-	@NotBlank
+	
 	private String displacement;
 	
-	@NotBlank
-	private String classM;
+	@NotNull
+	private String category;
 	
-	@NotBlank
+	
 	private String horsepower;
 	
-	@NotBlank
-	private int price;
 	
-	@NotBlank
+	private Integer price; 
+	
+	@NotNull 
 	private String license;
 
 	public MySpringBootMotorcycleModel() {
-		
-	}
-	
-	public MySpringBootMotorcycleModel(long id, @NotBlank String manufacturer, @NotBlank String brand,
-		@NotBlank String displacement, @NotBlank String classM, @NotBlank String horsepower, @NotBlank int price,
-		@NotBlank String license) {
-	super();
-	this.id = id;
-	this.manufacturer = manufacturer;
-	this.brand = brand;
-	this.displacement = displacement;
-	this.classM = classM;
-	this.horsepower = horsepower;
-	this.price = price;
-	this.license = license;
 	}
 
-	public long getId() {
-		return id;
+	public MySpringBootMotorcycleModel(Integer idm, String manufacturer, String model, String displacement, String category,
+			String horsepower, Integer price, String license) {
+		super();
+		this.idm = idm;
+		this.manufacturer = manufacturer;
+		this.model = model;
+		this.displacement = displacement;
+		this.category = category;
+		this.horsepower = horsepower;
+		this.price = price;
+		this.license = license;
 	}
-	public void setId(long id) {
-		this.id = id;
+
+
+
+	public Integer getId() {
+		return idm;
 	}
+
+	public void setId(Integer idm) {
+		this.idm = idm;
+	}
+
 	public String getManufacturer() {
 		return manufacturer;
 	}
+
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	public String getBrand() {
-		return brand;
+
+	public String getModel() {
+		return model;
 	}
-	public void setBrand(String brand) {
-		this.brand = brand;
+
+	public void setModel(String model) {
+		this.model = model;
 	}
+
 	public String getDisplacement() {
 		return displacement;
 	}
+
 	public void setDisplacement(String displacement) {
 		this.displacement = displacement;
 	}
-	public String getClassM() {
-		return classM;
+
+	public String getCategory() {
+		return category;
 	}
-	public void setClassM(String classM) {
-		this.classM = classM;
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
+
 	public String getHorsepower() {
 		return horsepower;
 	}
+
 	public void setHorsepower(String horsepower) {
 		this.horsepower = horsepower;
 	}
-	public int getPrice() {
+
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
+
 	public String getLicense() {
 		return license;
 	}
+
 	public void setLicense(String license) {
 		this.license = license;
 	}
 
 
-	
-	
 }

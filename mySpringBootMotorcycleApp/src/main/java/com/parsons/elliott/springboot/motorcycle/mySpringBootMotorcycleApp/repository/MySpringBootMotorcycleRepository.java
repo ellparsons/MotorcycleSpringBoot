@@ -6,9 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.parsons.elliott.springboot.motorcycle.mySpringBootMotorcycleApp.model.MySpringBootMotorcycleModel;
 
-public interface MySpringBootMotorcycleRepository extends JpaRepository<MySpringBootMotorcycleModel,Long>{
-	List<MySpringBootMotorcycleModel>findByClassM(String ClassM);
-	List<MySpringBootMotorcycleModel>findByManufacturer(String Manufacturer);
-	List<MySpringBootMotorcycleModel>findByBrand(String Brand);
-	
+public interface MySpringBootMotorcycleRepository extends JpaRepository<MySpringBootMotorcycleModel,Integer>{
+
 }
